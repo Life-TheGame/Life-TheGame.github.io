@@ -27,3 +27,8 @@ p {
   text-align: center;
   font-family: "sans";
 }
+
+html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
