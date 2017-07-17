@@ -42,7 +42,8 @@ var PhoneSkip = false;
 var elsewhere = false;
 
 function setup() {
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+  var uagent = navigator.userAgent.toLowerCase();
+  if (uagent.search("iphone") > -1) {
     Phone = true;
   } else {
     Phone = false;
