@@ -1,0 +1,29 @@
+body {
+  background-color: #2F2F2F;
+}
+.BoxA {
+
+  background-color: #aa2222;
+  transform:scale(0.8);
+  transition: 150ms ease-in-out;
+  text-decoration: none;
+}
+
+.BoxA:hover {
+  background-color: #ee9988;
+  transform:scale(0.9);
+  text-decoration: none;
+}
+
+a {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-family: "sans";
+}
+
+p {
+  color: white;
+  text-align: center;
+  font-family: "sans";
+}
