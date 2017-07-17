@@ -228,6 +228,9 @@ function draw() {
             f[i].update();
           }
           buCo = new Button(width/2, height/1.4, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
+          if (Phone) {
+            text("The button won't work because you are on your phone!", width/1.2, height/2);
+          }
           if (Continue_) {
             title = true;
             Continue_ = false;
@@ -258,6 +261,9 @@ function draw() {
             f[i].update();
           }
           buCo = new Button(width/2, height/1.4, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
+          if (Phone) {
+            text("The button won't work because you are on your phone!", width/1.2, height/2);
+          }
           if (Continue_) {
             title = true;
             Continue_ = false;
