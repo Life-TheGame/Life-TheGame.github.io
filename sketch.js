@@ -220,12 +220,12 @@ function draw() {
           text("You died of starvation", width/2, height/2);
           text("Your current day was: " + day, width/2, height/4);
           textSize(20);
-          text("Press any key to go to the title", width/2, height/3);
+          text("Press any key or click to go to the title", width/2, height/3);
           for (var i = 0; i < f.length; i++) {
             f[i].show();
             f[i].update();
           }
-          if (keyIsPressed) {
+          if (keyIsPressed || mouseIsPressed) {
             title = true;
             if (PlaySounds_) {
             clickOn.play();
@@ -248,12 +248,12 @@ function draw() {
           text("You died of overeating", width/2, height/2);
           text("Your current day was: " + day, width/2, height/4);
           textSize(20);
-          text("Press any key to go to the title", width/2, height/3);
+          text("Press any key or click to go to the title", width/2, height/3);
           for (var i = 0; i < f.length; i++) {
             f[i].show();
             f[i].update();
           }
-          if (keyIsPressed) {
+          if (keyIsPressed || mouseIsPressed) {
             title = true;
             if (PlaySounds_) {
               clickOn.play();
