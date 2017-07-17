@@ -6,7 +6,7 @@ function Button(x, y, string, s, bs, Toggle, Fulls) {
       fill(200, 150);
     }
   } else if (Fulls) {
-    if (fullscreen_) {
+    if (fullscreen()) {
       fill(255, 150);
     } else {
       fill(200, 150);
@@ -41,6 +41,7 @@ function Button(x, y, string, s, bs, Toggle, Fulls) {
     } else if (IorS == 'k') {
       title = true;
       PhoneSkip = true;
+      elsewhere = false;
     }
   }
 }
