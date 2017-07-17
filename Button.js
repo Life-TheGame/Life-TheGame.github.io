@@ -1,4 +1,4 @@
-function Button(x, y, string, s, bs, Toggle, Fulls) {
+function Button(x, y, string, s, bs, Toggle, Fulls, Cont) {
   if (Toggle) {
     if (PlaySounds_) {
       fill(255, 150);

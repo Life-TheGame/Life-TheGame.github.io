@@ -8,6 +8,7 @@ var buNe;
 var buBa;
 var buFu;
 var buSk;
+var buCo;
 var pop;
 var clickOn;
 var clickOff;
@@ -83,7 +84,7 @@ function draw() {
       fill(0);
       textSize(45);
       text("Life: The Game v 1.2", width/2, height/9);
-      text("Made By: Aiden Onstott", width/2, height/1.06);
+      text("Made By: Aiden Onstott", width/2, height/1.05);
       buS = new Button(width/2, height/2.75, "Start", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false);
       buI = new Button(width/2, height/1.35, "Instructions", (windowWidth + windowHeight) / 65, (windowWidth + windowHeight) / 18, false, false);
       buSo = new Button(width/1.2, height / 1.24, "Toggle Sounds", (windowWidth + windowHeight) / 85, (windowWidth + windowHeight) / 25, true, false);
@@ -220,13 +221,15 @@ function draw() {
           text("You died of starvation", width/2, height/2);
           text("Your current day was: " + day, width/2, height/4);
           textSize(20);
-          text("Press any key or click to go to the title", width/2, height/3);
+          text("Press continue to the title", width/2, height/3);
           for (var i = 0; i < f.length; i++) {
             f[i].show();
             f[i].update();
           }
-          if (keyIsPressed || mouseIsPressed) {
+          buCo = new Button(width/2, height/1.4, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
+          if (Continue_) {
             title = true;
+            Continue_ = false;
             if (PlaySounds_) {
             clickOn.play();
             }
@@ -248,13 +251,15 @@ function draw() {
           text("You died of overeating", width/2, height/2);
           text("Your current day was: " + day, width/2, height/4);
           textSize(20);
-          text("Press any key or click to go to the title", width/2, height/3);
+          text("Press continue to go to the title", width/2, height/3);
           for (var i = 0; i < f.length; i++) {
             f[i].show();
             f[i].update();
           }
-          if (keyIsPressed || mouseIsPressed) {
+          buCo = new Button(width/2, height/1.4, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
+          if (Continue_) {
             title = true;
+            Continue_ = false;
             if (PlaySounds_) {
               clickOn.play();
             }
@@ -312,6 +317,12 @@ function mouseClicked() {
         clickOff.play();
         fullscreen(false);
       }
+    }
+  }
+  if (!alive) {
+    var dCo = dist(mouseX, mouseY, width/2, height/1.4);
+    if (dCo < (windowWidth + windowHeight) / 18) {
+      Continue_ = true;
     }
   }
 }
