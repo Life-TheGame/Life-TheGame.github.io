@@ -38,6 +38,9 @@ function Button(x, y, string, s, bs, Toggle, Fulls) {
       title = false;
       instructions = true;
       next = false;
+    } else if (IorS == 'k') {
+      title = true;
+      PhoneSkip = true;
     }
   }
 }

@@ -7,6 +7,7 @@ var buSo;
 var buNe;
 var buBa;
 var buFu;
+var buSk;
 var pop;
 var clickOn;
 var clickOff;
@@ -36,8 +37,15 @@ var fy;
 var sleepPlay = true;
 var deathPlay = true;
 var fullscreen_ = false;
+var Phone = false;
+var PhoneSkip = false;
 
 function setup() {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+    Phone = true;
+  } else {
+    Phone = false;
+  }
   pop = loadSound('assets/pop.wav');
   clickOn = loadSound('assets/buttonOn.wav');
   clickOff = loadSound('assets/buttonOff.wav');
@@ -249,6 +257,22 @@ function draw() {
           }
         }
       }
+    }
+  }
+  if (Phone && !PhoneSkip) {
+    bacground(53);
+    textSize(50);
+    text("This game would work better if you weren't on your phone.", width/2, height/2);
+    buSk = new Button(width/2, height/8, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false);
+    var dBa = dist(mouseX, mouseY, width/2, height/8);
+    if (dBa < (windowWidth + windowHeight) / 18 && mouseIsPressed) {
+      buBa.click('k');
+      if (PlaySounds_) {
+        clickOff.play();
+      }
+    }
+    for (var i = 0; i < f.length; i++) {
+      f[i].show();
     }
   }
   if (windowWidth < 663) {
