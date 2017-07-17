@@ -41,6 +41,7 @@ var fullscreen_ = false;
 var Phone = true;
 var PhoneSkip = false;
 var elsewhere = false;
+var Continue_ = false;
 
 function setup() {
   var uagent = navigator.userAgent.toLowerCase();
