@@ -45,7 +45,7 @@ var Continue_ = false;
 
 function setup() {
   var uagent = navigator.userAgent.toLowerCase();
-  if (uagent.search("iphone") > -1) {
+  if (uagent.search("iphone" || "android" || "ipod" || "ipad") > -1) {
     Phone = true;
   } else {
     Phone = false;
@@ -227,15 +227,25 @@ function draw() {
             f[i].show();
             f[i].update();
           }
-          buCo = new Button(width/2, height/1.4, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
-          if (Phone) {
-            text("The button won't work because you are on your phone!", width/1.2, height/2);
-          }
-          if (Continue_) {
-            title = true;
-            Continue_ = false;
-            if (PlaySounds_) {
-            clickOn.play();
+          if (!Phone) {
+            buCo = new Button(width/2, height/1.4, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
+            if (Continue_) {
+              title = true;
+              Continue_ = false;
+              if (PlaySounds_) {
+                clickOn.play();
+              }
+            }
+          } else {
+            buCo = new Button(width/8, height/8 * 2, "Title", (windowWidth + windowHeight) / 25, (windowWidth + windowHeight) / 18, false);
+            var dBa = dist(mouseX, mouseY, width/8, height/8 * 2);
+            if (dBa < (windowWidth + windowHeight) / 18 && mouseIsPressed) {
+              if (Continue_) {
+                buBa.click('c');
+                if (PlaySounds_) {
+                  clickOff.play();
+                }
+              }
             }
           }
         }
@@ -260,15 +270,25 @@ function draw() {
             f[i].show();
             f[i].update();
           }
-          buCo = new Button(width/2, height/1.4, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
-          if (Phone) {
-            text("The button won't work because you are on your phone!", width/1.2, height/2);
-          }
-          if (Continue_) {
-            title = true;
-            Continue_ = false;
-            if (PlaySounds_) {
-              clickOn.play();
+          if (!Phone) {
+            buCo = new Button(width/2, height/1.4, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
+            if (Continue_) {
+              title = true;
+              Continue_ = false;
+              if (PlaySounds_) {
+                clickOn.play();
+              }
+            }
+          } else {
+            buCo = new Button(width/8, height/8 * 2, "Title", (windowWidth + windowHeight) / 25, (windowWidth + windowHeight) / 18, false);
+            var dBa = dist(mouseX, mouseY, width/8, height/8 * 2);
+            if (dBa < (windowWidth + windowHeight) / 18 && mouseIsPressed) {
+              if (Continue_) {
+                buBa.click('c');
+                if (PlaySounds_) {
+                  clickOff.play();
+                }
+              }
             }
           }
         }
@@ -302,34 +322,35 @@ function draw() {
     text("The screen height " + windowHeight + " is too small", width/2, height/8);
   }
 }
-
-function mouseClicked() {
-  if (!elsewhere && title) {
-    var dSo = dist(mouseX, mouseY, width/1.2, height/1.24);
-    var dFu = dist(mouseX, mouseY, width/8, height / 1.24);
-    if (dSo < (windowWidth + windowHeight) / 25) {
-      if (PlaySounds_ == false) {
-        clickOn.play();
-        PlaySounds_ = true;
-      } else {
-        clickOff.play();
-        PlaySounds_ = false;
+if (!Phone) {
+  function mouseClicked() {
+    if (!elsewhere && title) {
+      var dSo = dist(mouseX, mouseY, width/1.2, height/1.24);
+      var dFu = dist(mouseX, mouseY, width/8, height / 1.24);
+      if (dSo < (windowWidth + windowHeight) / 25) {
+        if (PlaySounds_ == false) {
+          clickOn.play();
+          PlaySounds_ = true;
+        } else {
+          clickOff.play();
+          PlaySounds_ = false;
+        }
+      }
+      if (dFu < (windowWidth + windowHeight) / 25) {
+        if (!fullscreen()) {
+          clickOn.play();
+          fullscreen(true);
+        } else {
+          clickOff.play();
+          fullscreen(false);
+        }
       }
     }
-    if (dFu < (windowWidth + windowHeight) / 25) {
-      if (!fullscreen()) {
-        clickOn.play();
-        fullscreen(true);
-      } else {
-        clickOff.play();
-        fullscreen(false);
+    if (!alive) {
+      var dCo = dist(mouseX, mouseY, width/2, height/1.4);
+      if (dCo < (windowWidth + windowHeight) / 18) {
+        Continue_ = true;
       }
-    }
-  }
-  if (!alive) {
-    var dCo = dist(mouseX, mouseY, width/2, height/1.4);
-    if (dCo < (windowWidth + windowHeight) / 18) {
-      Continue_ = true;
     }
   }
 }

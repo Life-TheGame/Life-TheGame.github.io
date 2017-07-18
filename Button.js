@@ -42,6 +42,9 @@ function Button(x, y, string, s, bs, Toggle, Fulls, Cont) {
       title = true;
       PhoneSkip = true;
       elsewhere = false;
+    } else if (IorS == 'c') {
+      Continue_ = true;
+      title = true;
     }
   }
 }
