@@ -222,13 +222,13 @@ function draw() {
           text("You died of starvation", width/2, height/2);
           text("Your current day was: " + day, width/2, height/4);
           textSize(20);
-          text("Press continue to the title", width/2, height/3);
+          text("Press title to go to the title", width/2, height/3);
           for (var i = 0; i < f.length; i++) {
             f[i].show();
             f[i].update();
           }
           if (!Phone) {
-            buCo = new Button(width/2, height/1.4, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
+            buCo = new Button(width/2, height/1.4, "Title", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
             if (Continue_) {
               title = true;
               Continue_ = false;
@@ -265,13 +265,13 @@ function draw() {
           text("You died of overeating", width/2, height/2);
           text("Your current day was: " + day, width/2, height/4);
           textSize(20);
-          text("Press continue to go to the title", width/2, height/3);
+          text("Press title to go to the title", width/2, height/3);
           for (var i = 0; i < f.length; i++) {
             f[i].show();
             f[i].update();
           }
           if (!Phone) {
-            buCo = new Button(width/2, height/1.4, "Continue", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
+            buCo = new Button(width/2, height/1.4, "Title", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false, true);
             if (Continue_) {
               title = true;
               Continue_ = false;
