@@ -295,20 +295,12 @@ function draw() {
       }
     }
   }
-  if (Phone && !PhoneSkip) {
+  if (Phone) {
     elsewhere = true;
     background(53);
     textSize(25);
     fill(0, 0, 0);
-    text("This game would work better if you weren't on your phone.", width/2, height/2);
-    buSk = new Button(width/2, height/6.5, "Continue?", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false);
-    var dSk = dist(mouseX, mouseY, width/2, height/6.5);
-    if (dSk < (windowWidth + windowHeight) / 18 && mouseIsPressed) {
-      buSk.click('k');
-      if (PlaySounds_) {
-        clickOn.play();
-      }
-    }
+    text("Hey! This game won't work on your phone! Mabye, you can try again in your browser?", width/2, height/2);
     for (var i = 0; i < f.length; i++) {
       f[i].show();
     }
