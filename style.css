@@ -19,16 +19,40 @@ a {
   color: white;
   text-align: center;
   text-decoration: none;
-  font-family: "sans";
+  font-family: sans-serif;
 }
 
-p {
+.e {
   color: white;
   text-align: center;
-  font-family: "sans";
+  font-family: sans-serif;
+  padding: 3px;
+  font-size: 20px;
+}
+
+.o {
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 2px;
+  font-size: 12px;
 }
 
 html {
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+.TextA {
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.ltg {
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
 }

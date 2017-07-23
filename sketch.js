@@ -329,10 +329,14 @@ function mouseClicked() {
     }
     if (dFu < (windowWidth + windowHeight) / 25) {
       if (!fullscreen()) {
-        clickOn.play();
+        if (PlaySounds_) {
+          clickOn.play();
+        }
         fullscreen(true);
       } else {
-        clickOff.play();
+        if (PlaySounds_) {
+          clickOff.play();
+        }
         fullscreen(false);
       }
     }
