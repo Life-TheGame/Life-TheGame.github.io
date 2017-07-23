@@ -45,7 +45,7 @@ var Continue_ = false;
 
 function setup() {
   var uagent = navigator.userAgent.toLowerCase();
-  if (uagent.search("iphone" || "android" || "ipod" || "ipad") > -1) {
+  if (uagent.search("iphone" || "android" || "ipod" || "ipad" || "blackberry") > -1) {
     Phone = true;
   } else {
     Phone = false;
@@ -299,7 +299,7 @@ function draw() {
     elsewhere = true;
     background(53);
     textSize(25);
-    fill(0, 0, 0);
+    fill(255);
     text("Hey! This game won't work on your phone! Mabye, you can try again in your browser?", width/2, height/2);
     for (var i = 0; i < f.length; i++) {
       f[i].show();
@@ -314,35 +314,33 @@ function draw() {
     text("The screen height " + windowHeight + " is too small", width/2, height/8);
   }
 }
-if (!Phone) {
-  function mouseClicked() {
-    if (!elsewhere && title) {
-      var dSo = dist(mouseX, mouseY, width/1.2, height/1.24);
-      var dFu = dist(mouseX, mouseY, width/8, height / 1.24);
-      if (dSo < (windowWidth + windowHeight) / 25) {
-        if (PlaySounds_ == false) {
-          clickOn.play();
-          PlaySounds_ = true;
-        } else {
-          clickOff.play();
-          PlaySounds_ = false;
-        }
-      }
-      if (dFu < (windowWidth + windowHeight) / 25) {
-        if (!fullscreen()) {
-          clickOn.play();
-          fullscreen(true);
-        } else {
-          clickOff.play();
-          fullscreen(false);
-        }
+function mouseClicked() {
+  if (!elsewhere && title) {
+    var dSo = dist(mouseX, mouseY, width/1.2, height/1.24);
+    var dFu = dist(mouseX, mouseY, width/8, height / 1.24);
+    if (dSo < (windowWidth + windowHeight) / 25) {
+      if (PlaySounds_ == false) {
+        clickOn.play();
+        PlaySounds_ = true;
+      } else {
+        clickOff.play();
+        PlaySounds_ = false;
       }
     }
-    if (!alive) {
-      var dCo = dist(mouseX, mouseY, width/2, height/1.4);
-      if (dCo < (windowWidth + windowHeight) / 18) {
-        Continue_ = true;
+    if (dFu < (windowWidth + windowHeight) / 25) {
+      if (!fullscreen()) {
+        clickOn.play();
+        fullscreen(true);
+      } else {
+        clickOff.play();
+        fullscreen(false);
       }
+    }
+  }
+  if (!alive) {
+    var dCo = dist(mouseX, mouseY, width/2, height/1.4);
+    if (dCo < (windowWidth + windowHeight) / 18) {
+      Continue_ = true;
     }
   }
 }
