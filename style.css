@@ -38,11 +38,6 @@ a {
   font-size: 12px;
 }
 
-html {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
 .TextA {
   color: white;
   text-align: center;
@@ -61,4 +56,45 @@ html {
   text-align: center;
   color: grey;
   font-family: sans-serif;
+}
+
+.bday1 {
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
+  font-size: 70px;
+}
+
+.bday2 {
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 5px;
+  font-size: 40px;
+  text-decoration: line-through;
+}
+
+.bday3 {
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
+  font-size: 70px;
+}
+
+.bday4 {
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
+  font-size: 70px;
+}
+
+.bday5 {
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
+  font-size: 70px;
 }
