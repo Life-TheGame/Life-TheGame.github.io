@@ -15,6 +15,9 @@ var clickOff;
 var sleepS;
 var wake;
 var death;
+var bMusic;
+var dMusic;
+var nMusic;
 var next = false;
 var PlaySounds_ = true;
 var eaten = 0;
@@ -42,6 +45,17 @@ var Phone = true;
 var PhoneSkip = false;
 var elsewhere = false;
 var Continue_ = false;
+var bPlayOnce = false;
+var nMPlay = true;
+var dMPlay = true;
+var bMPlay = true;
+var loading = true;
+
+function preload() {
+  bMusic = loadSound('assets/Life in D Minor Loop Ver.wav');
+  dMusic = loadSound('assets/Day in C Major.wav');
+  nMusic = loadSound('assets/Night in C Major.wav');
+}
 
 function setup() {
   var uagent = navigator.userAgent.toLowerCase();
@@ -65,8 +79,28 @@ function setup() {
 }
 
 function draw() {
+  if (bMPlay === true) {
+    bMusic.loop();
+    bMPlay = false;
+  }
+  if (!PlaySounds_) {
+    bMusic.pause();
+    bPlayOnce = true;
+  } else if (PlaySounds_) {
+    if (bPlayOnce == true) {
+      bMusic.play();
+      bPlayOnce = false;
+    }
+  }
+  if (!title && !instructions && !next) {
+    bMusic.stop();
+  } else {
+    dMusic.stop();
+    nMusic.stop();
+  }
   if (!elsewhere) {
     if (title) {
+      dMusic.stop();
       eaten = 0;
       day = 1;
       sleep = false;
@@ -80,11 +114,13 @@ function draw() {
       set = true;
       alive = true;
       next = false;
+      dMPlay = true;
+      nMPlay = false;
       textAlign(CENTER, CENTER);
       background(53);
       fill(0);
       textSize(45);
-      text("Life: The Game v 1.2", width/2, height/9);
+      text("Life: The Game v 1.6", width/2, height/9);
       text("Made By: Aiden Onstott", width/2, height/1.05);
       buS = new Button(width/2, height/2.75, "Start", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false);
       buI = new Button(width/2, height/1.35, "Instructions", (windowWidth + windowHeight) / 65, (windowWidth + windowHeight) / 18, false, false);
@@ -164,10 +200,22 @@ function draw() {
         pla.show();
         if (!sleep) {
           pla.update();
+          nMusic.stop();
+          if (dMPlay && PlaySounds_) {
+            dMusic.loop();
+            dMPlay = false;
+          }
+          nMPlay = true;
         } else {
           textSize(500);
           text("ZZZ", width/2, height/2);
           size -= 0.025 + sizeMin;
+          dMusic.stop();
+          if (nMPlay && PlaySounds_) {
+            nMusic.loop();
+            nMPlay = false;
+          }
+          dMPlay = true;
         }
 
         textAlign(CENTER, CENTER);
@@ -234,6 +282,7 @@ function draw() {
               Continue_ = false;
               if (PlaySounds_) {
                 clickOn.play();
+                bMPlay = true;
               }
             }
           } else {
@@ -277,6 +326,7 @@ function draw() {
               Continue_ = false;
               if (PlaySounds_) {
                 clickOn.play();
+                bMPlay = true;
               }
             }
           } else {

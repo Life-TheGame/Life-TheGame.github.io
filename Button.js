@@ -45,6 +45,7 @@ function Button(x, y, string, s, bs, Toggle, Fulls, Cont) {
     } else if (IorS == 'c') {
       Continue_ = false;
       title = true;
+      bMPlay = true;
     }
   }
 }
