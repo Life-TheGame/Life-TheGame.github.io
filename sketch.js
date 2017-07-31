@@ -60,7 +60,7 @@ function preload() {
 function setup() {
   var uagent = navigator.userAgent.toLowerCase();
   if (uagent.search("iphone" || "android" || "ipod" || "ipad" || "blackberry") > -1) {
-    Phone = true;
+    Phone = false;
   } else {
     Phone = false;
   }
