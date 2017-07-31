@@ -71,7 +71,7 @@ function setup() {
   sleepS = loadSound('assets/sleep.wav');
   wake = loadSound('assets/wake.wav');
   pla = new Player();
-  createCanvas(windowWidth - 10, windowHeight - 10);
+  createCanvas(windowWidth - 4, windowHeight - 4);
   //fullscreen();
   for (var i = 0; i < 50; i++) {
     f[i] = new Food();
@@ -400,7 +400,7 @@ function mouseClicked() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth - 10, windowHeight - 10);
+  resizeCanvas(windowWidth - 4, windowHeight - 4);
   for (var i = 0; i < f.length; i++) {
     f[i].eaten(true);
   }
