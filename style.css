@@ -115,3 +115,8 @@ a {
   font-size: 70px;
   text-align: center;
 }
+
+#fixed {
+overflow: scroll;
+-webkit-overflow-scrolling: touch;
+}
