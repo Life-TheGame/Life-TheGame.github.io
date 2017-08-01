@@ -51,6 +51,8 @@ var dMPlay = true;
 var bMPlay = true;
 var loading = true;
 var nSounds = 0;
+var aPercent = 0;
+var pCounter = 0;
 
 function preload() {
 
@@ -63,22 +65,29 @@ function errorCallback() {
 }
 
 function successCallback(song) {
-  background(255, 255, 0);
-  textSize(50);
-  textAlign(CENTER, CENTER);
-  text("100%", width/2, height/2);
-  textSize(75);
-  text("Gimme a sec", width/2, height/4);
+  // textSize(50);
+  // textAlign(CENTER, CENTER);
+  // text("100%", width/2, height/2);
+  // textSize(75);
+  // text("Gimme a sec", width/2, height/4);
   nSounds += 1;
 }
 
 function whileLoading(percent) {
+  aPercent += percent;
+  console.log(aPercent);
   background(255, 255, 0);
   textSize(50);
   textAlign(CENTER, CENTER);
-  text(floor(percent * 100) + "%", width/2, height/2);
+  text(floor((aPercent / 9) * 100) + "%", width/2, height/2);
   textSize(75);
   text("Gimme a sec", width/2, height/4);
+  if (pCounter == 9) {
+    aPercent = 0;
+    pCounter = 0;
+  } else {
+    pCounter++;
+  }
 }
 
 function setup() {
