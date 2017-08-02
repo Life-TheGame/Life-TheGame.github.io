@@ -53,6 +53,7 @@ var loading = true;
 var nSounds = 0;
 var aPercent = 0;
 var pCounter = 0;
+var waiter = 0;
 
 function errorCallback() {
   background(255, 0, 255);
@@ -61,48 +62,47 @@ function errorCallback() {
 }
 
 function successCallback(song) {
-  // textSize(50);
-  // textAlign(CENTER, CENTER);
-  // text("100%", width/2, height/2);
-  // textSize(75);
-  // text("Gimme a sec", width/2, height/4);
+  pCounter = pCounter + 1;
+  if (pCounter == 9) {
+    fill(0);
+    background(255, 255, 0);
+    textSize(50);
+    textAlign(CENTER, CENTER);
+    text("100%", width/2, height/2);
+    textSize(75);
+    text("Gimme a sec", width/2, height/4);
+    rectMode(CORNERS);
+    noFill();
+    stroke(0);
+    strokeWeight(4);
+    rect(width/2 - width/4, height/8 * 6 - 50, width/2 + width/4, height/8 * 6 + 50);
+    fill(35, 255, 35);
+    noStroke();
+    rect(width/2 - width/4 + 2, height/8 * 6 - 48, width/4 + width/2 - 2, height/8 * 6 + 48);
+    frameRate(1);
+  }
   nSounds = nSounds + 1;
-  background(255, 255, 0);
-  textSize(50);
-  textAlign(CENTER, CENTER);
-  fill(0);
-  text("100%", width/2, height/2);
-  textSize(75);
-  text("Gimme a sec", width/2, height/4);
-  rectMode(CORNERS);
-  noFill();
-  stroke(0);
-  strokeWeight(4);
-  rect(width/2 - 300, height/8 * 6 - 50, width/2 + 300, height/8 * 6 + 50);
-  fill(35, 255, 35);
-  noStroke();
-  var w = 600 * (nSounds / 9);
-  rect(width/2 - 298, height/8 * 6 - 48, width/4 + w, height/8 * 6 + 48);
-  console.log("Sound Loaded");
 }
 
 function whileLoading(percent) {
-  background(255, 255, 0);
-  textSize(50);
-  textAlign(CENTER, CENTER);
-  fill(0);
-  text(floor(percent * 100) + "%", width/2, height/2);
-  textSize(75);
-  text("Gimme a sec", width/2, height/4);
-  rectMode(CORNERS);
-  noFill();
-  stroke(0);
-  strokeWeight(4);
-  rect(width/2 - 300, height/8 * 6 - 50, width/2 + 300, height/8 * 6 + 50);
-  fill(35, 255, 35);
-  noStroke();
-  var w = 600 * (nSounds / 9);
-  rect(width/2 - 298, height/8 * 6 - 48, width/4 + w, height/8 * 6 + 48);
+  if (pCounter != 9) {
+    background(255, 255, 0);
+    textSize(50);
+    textAlign(CENTER, CENTER);
+    fill(0);
+    text(floor(percent * 100) + "%", width/2, height/2);
+    textSize(75);
+    text("Gimme a sec", width/2, height/4);
+    rectMode(CORNERS);
+    noFill();
+    stroke(0);
+    strokeWeight(4);
+    rect(width/2 - width/4, height/8 * 6 - 50, width/2 + width/4, height/8 * 6 + 50);
+    fill(35, 255, 35);
+    noStroke();
+    var w = width/2 * (nSounds / 9);
+    rect(width/2 - width/4 + 2, height/8 * 6 - 48, width/4 + w, height/8 * 6 + 48);
+  }
 }
 
 function setup() {
@@ -131,6 +131,7 @@ function setup() {
 
 function draw() {
   if (nSounds === 9) {
+    frameRate(60);
     if (bMPlay === true) {
       bMusic.loop();
       bMPlay = false;
