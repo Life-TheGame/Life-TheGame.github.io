@@ -2,9 +2,11 @@ body {
   background-color: #2F2F2F;
 }
 .BoxA {
-
   background-color: #aa2222;
   transform:scale(0.8);
+  margin: auto;
+  width: 50%;
+  /*height: 75%;*/
   transition: 150ms ease-in-out;
   text-decoration: none;
 }
