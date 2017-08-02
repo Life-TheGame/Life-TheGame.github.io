@@ -54,10 +54,6 @@ var nSounds = 0;
 var aPercent = 0;
 var pCounter = 0;
 
-function preload() {
-
-}
-
 function errorCallback() {
   background(255, 0, 255);
   text("100%", width/2, height/2);
@@ -70,24 +66,43 @@ function successCallback(song) {
   // text("100%", width/2, height/2);
   // textSize(75);
   // text("Gimme a sec", width/2, height/4);
-  nSounds += 1;
-}
-
-function whileLoading(percent) {
-  aPercent += percent;
-  console.log(aPercent);
+  nSounds = nSounds + 1;
   background(255, 255, 0);
   textSize(50);
   textAlign(CENTER, CENTER);
-  text(floor((aPercent / 9) * 100) + "%", width/2, height/2);
+  fill(0);
+  text("100%", width/2, height/2);
   textSize(75);
   text("Gimme a sec", width/2, height/4);
-  if (pCounter == 9) {
-    aPercent = 0;
-    pCounter = 0;
-  } else {
-    pCounter++;
-  }
+  rectMode(CORNERS);
+  noFill();
+  stroke(0);
+  strokeWeight(4);
+  rect(width/2 - 300, height/8 * 6 - 50, width/2 + 300, height/8 * 6 + 50);
+  fill(35, 255, 35);
+  noStroke();
+  var w = 600 * (nSounds / 9);
+  rect(width/2 - 298, height/8 * 6 - 48, width/4 + w, height/8 * 6 + 48);
+  console.log("Sound Loaded");
+}
+
+function whileLoading(percent) {
+  background(255, 255, 0);
+  textSize(50);
+  textAlign(CENTER, CENTER);
+  fill(0);
+  text(floor(percent * 100) + "%", width/2, height/2);
+  textSize(75);
+  text("Gimme a sec", width/2, height/4);
+  rectMode(CORNERS);
+  noFill();
+  stroke(0);
+  strokeWeight(4);
+  rect(width/2 - 300, height/8 * 6 - 50, width/2 + 300, height/8 * 6 + 50);
+  fill(35, 255, 35);
+  noStroke();
+  var w = 600 * (nSounds / 9);
+  rect(width/2 - 298, height/8 * 6 - 48, width/4 + w, height/8 * 6 + 48);
 }
 
 function setup() {
@@ -157,7 +172,7 @@ function draw() {
         background(53);
         fill(0);
         textSize(45);
-        text("Life: The Game v 1.6", width/2, height/9);
+        text("Life: The Game v 1.9", width/2, height/9);
         text("Made By: Aiden Onstott", width/2, height/1.05);
         buS = new Button(width/2, height/2.75, "Start", (windowWidth + windowHeight) / 50, (windowWidth + windowHeight) / 18, false, false);
         buI = new Button(width/2, height/1.35, "Instructions", (windowWidth + windowHeight) / 65, (windowWidth + windowHeight) / 18, false, false);
