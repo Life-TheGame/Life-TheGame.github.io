@@ -6,13 +6,15 @@ body {
   transform:scale(0.8);
   margin: auto;
   width: 50%;
+  border-radius: 75px;
   /*height: 75%;*/
-  transition: 150ms ease-in-out;
+  transition: 250ms ease-in-out;
   text-decoration: none;
 }
 
 .BoxA:hover {
   background-color: #ee9988;
+  border-radius: 20px;
   transform:scale(0.9);
   text-decoration: none;
 }
