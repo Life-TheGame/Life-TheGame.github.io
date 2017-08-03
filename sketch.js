@@ -83,7 +83,7 @@ function successCallback(song) {
     rect(width/2 - width/4 + 2, height/8 * 6 - 48, width/4 + width/2 - 2, height/8 * 6 + 48);
     textSize(45);
     text("Done!", width/2, height/8);
-    frameRate(1);
+    frameRate(7);
   }
   console.log(gSong);
   // if (gSong != null) {
