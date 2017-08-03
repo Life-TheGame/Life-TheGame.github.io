@@ -51,9 +51,10 @@ var dMPlay = true;
 var bMPlay = true;
 var loading = true;
 var nSounds = 0;
-var aPercent = 0;
+var gPercent = 0;
 var pCounter = 0;
 var waiter = 0;
+var gSong = null;
 
 function errorCallback() {
   background(255, 0, 255);
@@ -62,6 +63,7 @@ function errorCallback() {
 }
 
 function successCallback(song) {
+  gSong = song;
   pCounter = pCounter + 1;
   if (pCounter == 9) {
     fill(0);
@@ -81,11 +83,17 @@ function successCallback(song) {
     rect(width/2 - width/4 + 2, height/8 * 6 - 48, width/4 + width/2 - 2, height/8 * 6 + 48);
     frameRate(1);
   }
+  console.log(gSong);
+  // if (gSong != null) {
+  //   textSize(20);
+  //   text("Succsesfully Loaded: " + gSong.file, width/2, height/8);
+  // }
   nSounds = nSounds + 1;
 }
 
 function whileLoading(percent) {
   if (pCounter != 9) {
+    gPercent = percent;
     background(255, 255, 0);
     textSize(50);
     textAlign(CENTER, CENTER);
@@ -102,6 +110,10 @@ function whileLoading(percent) {
     noStroke();
     var w = width/2 * (nSounds / 9);
     rect(width/2 - width/4 + 2, height/8 * 6 - 48, width/4 + w, height/8 * 6 + 48);
+    if (gSong != null) {
+      textSize(45);
+      text("Succsesfully Loaded: " + gSong.file, width/2, height/8);
+    }
   }
 }
 
