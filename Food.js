@@ -37,14 +37,14 @@ function Food() {
     }
   }
 
-  this.eaten = function(resizeing) {
+  this.eaten = function(resizing) {
     if (alive) {
       eaten++;
       eatenToday++;
       this.x = random(width);
       this.y = random(height);
 
-      if (PlaySounds_ && !resizeing) {
+      if (PlaySounds_ && !resizing) {
         pop.play();
       }
     }

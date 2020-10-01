@@ -88,7 +88,7 @@ function successCallback(song) {
   console.log(gSong);
   // if (gSong != null) {
   //   textSize(20);
-  //   text("Succsesfully Loaded: " + gSong.file, width/2, height/8);
+  //   text("Successfully Loaded: " + gSong.file, width/2, height/8);
   // }
   nSounds = nSounds + 1;
 }
@@ -114,7 +114,7 @@ function whileLoading(percent) {
     rect(width/2 - width/4 + 2, height/8 * 6 - 48, width/4 + w, height/8 * 6 + 48);
     if (gSong != null) {
       textSize(45);
-      text("Succsesfully Loaded: " + gSong.file, width/2, height/8);
+      text("Successfully Loaded: " + gSong.file, width/2, height/8);
     }
   }
 }
@@ -417,7 +417,7 @@ function draw() {
       background(53);
       textSize(25);
       fill(255);
-      text("Hey! This game won't work on your phone! Mabye, you can try again in your browser?", width/2, height/2);
+      text("Hey! This game won't work on your phone! Maybe, you can try again in your browser?", width/2, height/2);
       for (var i = 0; i < f.length; i++) {
         f[i].show();
       }
